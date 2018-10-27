@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-{% for id, title in titles.items() %}
-<p><a href={{url_for('file', file_id = id )}}>新闻： {{ title }}</a></p>
+{% for file in files %}
+<p><a href={{url_for('file', file_id = file.id )}}>新闻： {{ file.title }}</a></p>
+{% for tag in file.tags %}
+<span>{{tag}}</span>
+{% endfor %}
 {% endfor %}
 {% endblock %}
 
